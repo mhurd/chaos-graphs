@@ -10,7 +10,8 @@
     </head>
     <body>
         <div id="logisticGraphDiv">
-            <h1>Logistic Function,
+            <h1>Logistic Function</h1>
+            <h2>
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <msub>
                         <mi>x</mi>
@@ -28,21 +29,22 @@
                         <mo>)</mo>
                     </mrow>
                 </math>
-            </h1>
+            </h2>
             <input id="logisticKSlider" value="0" step="0.01" type="range" min="0.01" max="3.99" onchange="updateLogisticSlider(this.value)"/>
-            <h1 id="logisticKLabel">
+            <h2 id="logisticKLabel">
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>k</mi>
                     <mo>=</mo>
                     <mn>0</mn>
                 </math>
-            </h1>
+            </h2>
             <script type="text/javascript">
                 graph("logisticGraph", logistic, 0.4, 0);
             </script>
         </div>
         <div id="quadraticGraphDiv">
-            <h1>Quadratic Map Function,
+            <h1>Quadratic Map Function</h1>
+            <h2>
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <msub>
                         <mi>x</mi>
@@ -58,15 +60,15 @@
                         <mo>(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>)</mo>
                     </mrow>
                 </math>
-            </h1>
+            </h2>
             <input id="quadraticKSlider" value="0" step="0.01" type="range" min="-0.25" max="2" onchange="updateQuadraticSlider(this.value)"/>
-            <h1 id="quadraticKLabel">
+            <h2 id="quadraticKLabel">
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>k</mi>
                     <mo>=</mo>
                     <mn>0</mn>
                 </math>
-            </h1>
+            </h2>
             <script type="text/javascript">
                 graph("quadraticGraph", quadratic, 0.4, 0);
             </script>
