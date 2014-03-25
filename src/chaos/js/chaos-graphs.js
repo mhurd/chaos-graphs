@@ -34,21 +34,13 @@ var yAxis2 = d3.svg.axis()
     .scale(yScale2)
     .orient("left");
 
-var x0 = 0.06
-var samples = 100
+var x0 = 0.06;
+var samples = 100;
 
 function DataPoint(index, previousValue, value) {
     this.index = index;
     this.previousValue = previousValue;
     this.value = value;
-}
-
-var logistic = function(x, k) {
-    return k*x*(1-x);
-}
-
-var quadratic = function(x, k) {
-    return k-(x*x);
 }
 
 function rnd(x,p) {
@@ -136,21 +128,21 @@ function graph(graphName, f, x, k) {
 }
 
 function updateKLabel(labelId, newValue) {
-    var label = document.getElementById(labelId)
+    var label = document.getElementById(labelId);
     label.innerHTML = '<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi><mo>=</mo><mn>' + newValue + '</mn></math>';
     MathJax.Hub.Queue(["Typeset", MathJax.Hub, labelId]);
 }
 
-function updateLogisticSlider(slideAmount) {
+function updateLogisticSlider(slideAmount, f) {
     updateKLabel("logisticKLabel", slideAmount);
     $("#logisticGraph1").remove();
     $("#logisticGraph2").remove();
-    graph("logisticGraph", logistic, 0.4, slideAmount);
+    graph("logisticGraph", f, 0.4, slideAmount);
 }
 
-function updateQuadraticSlider(slideAmount) {
+function updateQuadraticSlider(slideAmount, f) {
     updateKLabel("quadraticKLabel", slideAmount);
     $("#quadraticGraph1").remove();
     $("#quadraticGraph2").remove();
-    graph("quadraticGraph", quadratic, 0.4, slideAmount);
+    graph("quadraticGraph", f, 0.4, slideAmount);
 }

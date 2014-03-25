@@ -5,8 +5,9 @@
         <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="http://d3js.org/d3.v3.js"></script>
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
         <script type="text/javascript" src="js/chaos-graphs.js"></script>
+        <script type="text/javascript" src="js/chaotic-functions.js"></script>
     </head>
     <body>
         <div id="logisticGraphDiv">
@@ -30,7 +31,7 @@
                     </mrow>
                 </math>
             </h2>
-            <input id="logisticKSlider" value="0" step="0.01" type="range" min="0.01" max="3.99" onchange="updateLogisticSlider(this.value)"/>
+            <label for="logisticKSlider"></label><input id="logisticKSlider" value="0" step="0.01" type="range" min="0.01" max="3.99" onchange="updateLogisticSlider(this.value, chaotic.logistic)"/>
             <h2 id="logisticKLabel">
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>k</mi>
@@ -39,7 +40,7 @@
                 </math>
             </h2>
             <script type="text/javascript">
-                graph("logisticGraph", logistic, 0.4, 0);
+                graph("logisticGraph", chaotic.logistic, 0.4, 0);
             </script>
         </div>
         <div id="quadraticGraphDiv">
@@ -61,7 +62,7 @@
                     </mrow>
                 </math>
             </h2>
-            <input id="quadraticKSlider" value="0" step="0.01" type="range" min="-0.25" max="2" onchange="updateQuadraticSlider(this.value)"/>
+            <label for="quadraticKSlider"></label><input id="quadraticKSlider" value="0" step="0.01" type="range" min="-0.25" max="2" onchange="updateQuadraticSlider(this.value, chaotic.quadratic)"/>
             <h2 id="quadraticKLabel">
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>k</mi>
@@ -70,7 +71,7 @@
                 </math>
             </h2>
             <script type="text/javascript">
-                graph("quadraticGraph", quadratic, 0.4, 0);
+                graph("quadraticGraph", chaotic.quadratic, 0.4, 0);
             </script>
         </div>
     </body>
