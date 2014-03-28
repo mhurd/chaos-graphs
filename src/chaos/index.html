@@ -31,8 +31,8 @@
                     </mrow>
                 </math>
             </h2>
-            <label for="logisticKSlider"></label><input id="logisticKSlider" value="0" step="0.01" type="range" min="0.01" max="3.99" onchange="updateLogisticSlider(this.value, chaotic.logistic)"/>
-            <h2 id="logisticKLabel">
+            <label for="logisticGraphKSlider"></label><input id="logisticGraphKSlider" value="0" step="0.01" type="range" min="0.01" max="3.99" onchange="logisticUpdateHandler(this.value)"/>
+            <h2 id="logisticGraphKLabel">
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>k</mi>
                     <mo>=</mo>
@@ -40,7 +40,7 @@
                 </math>
             </h2>
             <script type="text/javascript">
-                graph("logisticGraph", chaotic.logistic, 0.4, 0);
+                var logisticUpdateHandler = chaosGraphs.addGraph("logisticGraph", chaotic.logistic, 0);
             </script>
         </div>
         <div id="quadraticGraphDiv">
@@ -62,8 +62,8 @@
                     </mrow>
                 </math>
             </h2>
-            <label for="quadraticKSlider"></label><input id="quadraticKSlider" value="0" step="0.01" type="range" min="-0.25" max="2" onchange="updateQuadraticSlider(this.value, chaotic.quadratic)"/>
-            <h2 id="quadraticKLabel">
+            <label for="quadraticGraphKSlider"></label><input id="quadraticGraphKSlider" value="0" step="0.01" type="range" min="-0.25" max="2" onchange="quadraticUpdateHandler(this.value)"/>
+            <h2 id="quadraticGraphKLabel">
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mi>k</mi>
                     <mo>=</mo>
@@ -71,7 +71,7 @@
                 </math>
             </h2>
             <script type="text/javascript">
-                graph("quadraticGraph", chaotic.quadratic, 0.4, 0);
+                var quadraticUpdateHandler = chaosGraphs.addGraph("quadraticGraph", chaotic.quadratic, 0);
             </script>
         </div>
     </body>
