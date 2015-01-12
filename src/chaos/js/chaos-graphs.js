@@ -106,44 +106,9 @@ var chaosGraphs = {
             .attr("class", "line")
             .attr("d", line);
 
-        // Draw the x v.s. x+1 graph
-
-        var svg2 = d3.select("#" + graphName + "Div").append("svg")
-            .attr("id", graphName + "2")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        xScale.domain(d3.extent(data, function(d) { return d.previousValue; }));
-        yScale.domain(d3.extent(data, function(d) { return d.value; }));
-
-        svg2.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
-
-        svg2.append("g")
-            .attr("class", "y axis")
-            .call(yAxis);
-
-        svg2.selectAll("circle")
-            .data(data)
-            .enter()
-            .append("circle")
-            .attr("class", "circle")
-            .attr("cx", function(d) {
-                return xScale(d.previousValue);
-            })
-            .attr("cy", function(d) {
-                return yScale(d.value);
-            })
-            .attr("r", 3);
-
         return function (kAmount) {
             updateKLabel(graphName + "KLabel", kAmount);
             $("#" + graphName + "1").remove();
-            $("#" + graphName + "2").remove();
             chaosGraphs.addGraph(graphName, graphFunction, kAmount);
         }
     }
